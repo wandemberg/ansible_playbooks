@@ -1,0 +1,16 @@
+---
+- name: Copiar inventory (copiar para as máquinas ubuntu)
+  hosts: ubuntu
+
+  tasks:
+    - name: Copiar arquivo do controlador para as máquinas ubuntu
+      copy:
+        src: /root/arquivo-1.txt
+        dest: /root/arquivo-2.txt
+        remote_src: no
+
+    - name: Copiar arquivo das máquinas ubuntu para outra pasta nas mesmas máquinas
+      copy:
+        src: /root/arquivo-2.txt
+        dest: /tmp/arquivo-2.txt
+        remote_src: yes

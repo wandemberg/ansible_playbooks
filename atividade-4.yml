@@ -1,0 +1,16 @@
+---
+- name: Criar um arquivo ou diretorio
+  hosts: VMS
+
+  tasks:
+    - name: Criar arquivo
+      file:
+        path: /root/arquivo.txt
+        state: touch
+        mode: '0644'
+
+    - name: Criar pasta
+      file:
+        path: /root/ativ-4
+        state: directory
+        mode: '0755'

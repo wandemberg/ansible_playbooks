@@ -1,0 +1,17 @@
+---
+- name: Comandos para verificar os Ips
+  hosts: maq
+
+  tasks:
+    - command: ifconfig
+      register: out
+
+    - debug:
+        msg: "{{ out.stdout_lines[1] }}"
+
+- name: Facts para verificar os Ips 
+  hosts: maq
+
+  tasks:
+    - debug:
+        msg: "{{ ansible_all_ipv4_addresses }}"
